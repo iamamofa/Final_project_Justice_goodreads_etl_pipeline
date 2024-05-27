@@ -27,6 +27,28 @@ I have written detailed instruction on how to setup Airflow using AWS CloudForma
  - Airflow DAG has Analytics queries configured in a Custom Designed Operator. These queries are run and again a Data Quality Check is done on some selected Analytics Table.
  - Dag execution completes after these Data Quality check.
 
+## ETL Jobs
+The ETL jobs are responsible for extracting data from the Landing Bucket, transforming it into a suitable format, and loading it into the Redshift data warehouse. These jobs are implemented in Apache Spark and are scheduled to run every 10 minutes using Apache Airflow.
+
+## Redshift Warehouse Module
+The Redshift data warehouse stores the processed data, making it available for analysis. This module ensures that data is efficiently loaded and indexed to support fast query performance.
+
+## Analytics Module
+The Analytics Module provides tools and interfaces for querying the data stored in Redshift. This enables users to generate insights and reports based on the Goodreads data.
+
+## Data Flow
+
+- Data Capture: Data is fetched from the Goodreads API in real-time using the Goodreads Python Wrapper.
+- Local Storage: The fetched data is initially stored on the local disk.
+- Data Transfer: Data is periodically moved to the AWS S3 Landing Bucket.
+- ETL Processing: Spark jobs process the data and load it into the Redshift data warehouse. These jobs are scheduled by Airflow to run every 10 minutes.
+- Data Analysis: The processed data in Redshift can be queried and analyzed using the Analytics Module.
+## Getting Started
+
+To set up and run the Goodreads ETL pipeline, follow these steps:
+
+Clone the Repository:
+
 ## Environment Setup
 
 ### Hardware Used
@@ -126,9 +148,10 @@ Data Loaded to Warehouse:
     -   We can set the concurrency limit for your Amazon Redshift cluster. While the concurrency limit is 50 parallel queries for a single period of time, this is on a per cluster basis, meaning you can launch as many clusters as fit for you business.
  
 
-
-
-
+## Acknowledgements
+```` 
+I would like to extend my sincere gratitude to Trestle Academy Ghana for providing me with the invaluable opportunity to work on this project. The three months of intensive training in data engineering have significantly enhanced my skills and knowledge in the field. Your support and guidance have been instrumental in my professional development. Thank you for this incredible experience. 
+````
 
 
 
