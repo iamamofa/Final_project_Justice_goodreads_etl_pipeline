@@ -1,4 +1,5 @@
-# ```` GoodReads Data Pipeline
+# Final Capstone Project Work - Justice Ohene Amofa
+##  GoodReads Data Pipeline
 
 ## Architecture 
 ![Pipeline Architecture](https://github.com/san089/goodreads_etl_pipeline/blob/master/docs/images/architecture.png)
@@ -20,6 +21,7 @@ Data is captured in real time from the goodreads API using the Goodreads Python 
  - Once the data is moved to working zone, spark job is triggered which reads the data from working zone and apply transformation. Dataset is repartitioned and moved to the Processed Zone.
  - Warehouse module of ETL jobs picks up data from processed zone and stages it into the Redshift staging tables.
  - Using the Redshift staging tables and UPSERT operation is performed on the Data Warehouse tables to update the dataset.
+I have written detailed instruction on how to setup Airflow using AWS CloudFormation script.  Check out - [Airflow using AWS CloudFormation](https://github.com/san089/Data_Engineering_Projects/blob/master/Airflow_Livy_Setup_CloudFormation.md)
  - ETL job execution is completed once the Data Warehouse is updated. 
  - Airflow DAG runs the data quality check on all Warehouse tables once the ETL job execution is completed.
  - Airflow DAG has Analytics queries configured in a Custom Designed Operator. These queries are run and again a Data Quality Check is done on some selected Analytics Table.
@@ -37,9 +39,9 @@ Redshift: For Redshift I used 2 Node cluster with Instance Types `dc2.large`
 
 ### Setting Up Airflow
 
-I have written detailed instruction on how to setup Airflow using AWS CloudFormation script.  Check out - [Airflow using AWS CloudFormation](https://github.com/san089/Data_Engineering_Projects/blob/master/Airflow_Livy_Setup_CloudFormation.md)
 
 **NOTE: This setup uses EC2 instance and a Postgres RDS instance. Make sure to check out charges before running the CloudFromation Stack.** 
+
 
 Project uses `sshtunnel` to submit spark jobs using a ssh connection from the EC2 instance. This setup does not automatically install `sshtunnel` for apache airflow. You can install by running below command: 
 
@@ -99,7 +101,6 @@ The `goodreadsfaker` module in this project generates Fake data which is used to
 
 Source DataSet Count:
 ![Source Dataset Count](https://github.com/san089/goodreads_etl_pipeline/blob/master/docs/images/DatasetCount.PNG)
-
 
 DAG Run Results:
 ![GoodReads DAG Run](https://github.com/san089/goodreads_etl_pipeline/blob/master/docs/images/DAG_tree_view.PNG)
