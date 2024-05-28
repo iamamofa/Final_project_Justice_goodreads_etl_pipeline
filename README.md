@@ -149,9 +149,9 @@ Data Loaded to Warehouse:
  
 
 ## Acknowledgements
-````  bash
+```
 I would like to extend my sincere gratitude to Trestle Academy Ghana for providing me with the invaluable opportunity to work on this project. The three months of intensive training in data engineering have significantly enhanced my skills and knowledge in the field. Your support and guidance have been instrumental in my professional development. Thank you for this incredible experience. 
-````
+```
 
 
 
