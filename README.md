@@ -2,11 +2,11 @@
 ##  GoodReads Data Pipeline
 
 ## Architecture 
-![Pipeline Architecture](https://github.com/san089/goodreads_etl_pipeline/blob/master/docs/images/architecture.png)
+![Pipeline Architecture](https://github.com/iamamofa/Final_project_Justice_goodreads_etl_pipeline/blob/master/docs/images/architecture.png)
 
 Pipeline Consists of various modules:
 
- - [GoodReads Python Wrapper](https://github.com/san089/goodreads)
+ - [GoodReads Python Wrapper](https://github.com/iamamofa/goodreads)
  - ETL Jobs
  - Redshift Warehouse Module
  - Analytics Module 
