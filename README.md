@@ -129,7 +129,7 @@ DAG Run Results:
 Data Loaded to Warehouse:
 ![GoodReads Warehouse Count](https://github.com/iamamofa/Final_project_Justice_goodreads_etl_pipeline/blob/main/docs/images/WarehouseCount.PNG)
 
-https://github.com/san089/goodreads_etl_pipeline/blob/master/docs/images/WarehouseCount.PNG
+
 
 ## Scenarios
 
